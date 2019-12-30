@@ -1,34 +1,16 @@
 {
-  "name": "roger_dashboard_server",
+  "name": "awstest",
   "version": "1.0.0",
   "description": "",
   "main": "app.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "tunnel": "ngrok http 1337"
+    "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "aws-sdk": "^2.596.0",
     "body-parser": "^1.19.0",
-    "csv-parse": "^4.4.5",
-    "csv-stringify": "^5.3.3",
     "express": "^4.17.1",
-    "express-history-api-fallback": "^2.2.1",
-    "google-spreadsheet": "^2.0.8",
-    "googleapis": "^39.2.0",
-    "install": "^0.13.0",
-    "jsonwebtoken": "^8.5.1",
-    "mailgun-js": "^0.22.0",
-    "module-alias": "^2.2.2",
-    "moment": "^2.24.0",
-    "mongodb": "^3.3.4",
-    "npm": "^6.13.1",
-    "twilio": "^3.34.0"
-  },
-  "_moduleAliases": {
-    "@db": "db",
-    "@util": "util"
+    "express-history-api-fallback": "^2.2.1"
   }
 }
