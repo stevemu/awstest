@@ -1,0 +1,24 @@
+<html>
+  <head></head>
+  <body>
+    <h1 id="host"></h1>
+    <input type="text" placeholder="new meal" />
+    <button>add</button>
+    <ul>
+      <li>meal 1</li>
+      <li>meal 2</li>
+      <li>meal 3</li>
+    </ul>
+  </body>
+
+  <script>
+    async function run() {
+      let res = await fetch("/host");
+      let host = await res.json();
+      console.log(host);
+      document.getElementById("host").innerHTML = host.message;
+    }
+
+    run();
+  </script>
+</html>
