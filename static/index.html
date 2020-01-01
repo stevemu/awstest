@@ -2,13 +2,9 @@
   <head></head>
   <body>
     <h1 id="host"></h1>
-    <input type="text" placeholder="new todo" />
-    <button>add</button>
+    <input type="text" placeholder="new todo" id="desc" />
+    <button onclick="addTodo()">add</button>
     <ul id="todos"></ul>
-    <p>
-      status: getting todos is implemented via aws RBS, add todo is not
-      implemented yet
-    </p>
   </body>
 
   <script>
@@ -16,7 +12,12 @@
       let res = await fetch("/host");
       let host = await res.json();
       document.getElementById("host").innerHTML = host.message;
+      await getTodos();
+    }
 
+    run();
+
+    async function getTodos() {
       res = await fetch("/todos");
       let todos = await res.json();
       // console.log(todos);
@@ -30,6 +31,20 @@
       }
     }
 
-    run();
+    async function addTodo() {
+      // console.log("add todo");
+      let desc = document.getElementById("desc").value;
+      // console.log(desc);
+      await fetch("/todos", {
+        method: "POST",
+        body: JSON.stringify({
+          desc
+        }),
+        headers: {
+          "Content-type": "application/json; charset=UTF-8"
+        }
+      });
+      await getTodos();
+    }
   </script>
 </html>
