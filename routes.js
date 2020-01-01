@@ -5,6 +5,11 @@ function configRoutes(app) {
   app.get("/host", async (req, res) => {
     return res.json({ message: "hello from " + os.hostname() });
   });
+
+  app.get("/todos", async (req, res) => {
+    let result = await req.connection.query("SELECT * from todo_t");
+    return res.json(result[0]);
+  });
 }
 
 exports.configRoutes = configRoutes;

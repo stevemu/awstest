@@ -4,20 +4,30 @@
     <h1 id="host"></h1>
     <input type="text" placeholder="new todo" />
     <button>add</button>
-    <ul>
-      <li>todo 1</li>
-      <li>todo 2</li>
-      <li>todo 3</li>
-    </ul>
-    <p>this is a static page, not dynamic behavior implemented yet</p>
+    <ul id="todos"></ul>
+    <p>
+      status: getting todos is implemented via aws RBS, add todo is not
+      implemented yet
+    </p>
   </body>
 
   <script>
     async function run() {
       let res = await fetch("/host");
       let host = await res.json();
-      console.log(host);
       document.getElementById("host").innerHTML = host.message;
+
+      res = await fetch("/todos");
+      let todos = await res.json();
+      // console.log(todos);
+
+      // create UI
+      let ul = document.getElementById("todos");
+      for (let todo of todos) {
+        let li = document.createElement("li");
+        li.innerHTML = todo.desc;
+        ul.appendChild(li);
+      }
     }
 
     run();
