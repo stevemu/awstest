@@ -27,8 +27,8 @@ async function run() {
   });
   app.use("/", express.static(path.resolve(__dirname, "static")));
 
-  app.listen(5000, null, () => {
-    console.log("server is running on " + 5000);
+  app.listen(8081, null, () => {
+    console.log("server is running on " + 8081);
   });
 }
 
